@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <div>Hi How are you ?</div>
-        
+
     </>
   )
 }
