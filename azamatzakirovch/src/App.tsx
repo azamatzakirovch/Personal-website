@@ -1,45 +1,80 @@
 import './App.css';
-
 import azamatzakirovch from "./../public/azamatzakirovch.jpg"
 import instagram from "./../public/instagram.png"
 import linkedin from "./../public/linkedin.png"
+
 import youtube from "./../public/youtube.png"
 import github from "./../public/github.png"
 import linearAlgebra from "./../public/science.png"
 import Probability from "./../public/curve.png"
+
 import calc from "./../public/calculus.png"
 import py from "./../public/python.png"
-
 import html from "./../public/html.png"
 import css from "./../public/css.png"
+
 import react from "./../public/react.png"
 import vite from "./../public/vite.svg"
-
 import c from "./../public/c.png"
 import cplus from "./../public/cpp.png"
+
 import java from "./../public/java.png"
 import js from "./../public/js.png"
-
 import analytics from "./../public/metrics.png"
+import LinearAlgebra from "./root-of-other-pages/information-about-skills/LinearAlgebra/LinearAlgebra.tsx"
 
+import C from "./root-of-other-pages/information-about-skills/C/C.tsx"
+import CPP from "./root-of-other-pages/information-about-skills/CPP/CPP.tsx"
+import HTML from "./root-of-other-pages/information-about-skills/HTML/HTML.tsx"
+import CSS from "./root-of-other-pages/information-about-skills/CSS/CSS.tsx"
+
+import REACT from "./root-of-other-pages/information-about-skills/React/React.tsx"
+import PYTHON from "./root-of-other-pages/information-about-skills/Python/Python.tsx"
+import DATA from "./root-of-other-pages/information-about-skills/DataAnalytics/DataAnalytics.tsx"
+import PROBABILITY from "./root-of-other-pages/information-about-skills/Probability-and-Statistics/Probability-and-Statistics.tsx"
+
+import JS from "./root-of-other-pages/information-about-skills/Js/Js.tsx"
+import JAVA from "./root-of-other-pages/information-about-skills/Java/Java.tsx"
+import VITE from "./root-of-other-pages/information-about-skills/Vite/Vite.jsx"
+
+import CALCULUS from "./root-of-other-pages/information-about-skills/Calculus/Calculus.tsx"
 import {
     PieChart, Pie, Cell, Tooltip, ResponsiveContainer
 } from 'recharts';
-// import {useState} from "react";
-
+import {useState} from "react";
+// import { useNavigate } from 'react-router-dom';
 const data = [
     { name: 'Easy', value: 33 },
     { name: 'Middle', value: 37 },
     { name: 'Hard', value: 2 },
 ];
-
 const COLORS = ['#0c8500', '#FFD93D', '#ff0000', '#1A535C'];
 
+
+
+
+
 function App() {
-
-    // const [open_page, set_page] = useState("home");
-
-    // const
+    const [open_page, set_page] = useState<string | null>(null);
+    const case_function_for_skills = () => {
+        switch (open_page) {
+            case "LinearAlgebra": return <LinearAlgebra />;
+            case "C": return <C />;
+            case "CPP": return <CPP />;
+            case "HTML": return <HTML />;
+            case "CSS": return <CSS />;
+            case "REACT": return <REACT />;
+            case "PYTHON": return <PYTHON />;
+            case "DATA": return <DATA />;
+            case "PROBABILITY": return <PROBABILITY />;
+            case "JS": return <JS />;
+            case "JAVA": return <JAVA />;
+            case "VITE": return <VITE />;
+            case "CALCULUS": return <CALCULUS />;
+            default:
+                return <div style={{ color: "white", padding: "20px" }}>Please select a skill from the icons above.</div>;
+        }
+    }
 
     return (
         <>
@@ -131,7 +166,7 @@ function App() {
                     position: "absolute",
                     top: "20px",
                     left: "20px",
-                }}>
+                }} onClick={() => set_page('LinearAlgebra')}>
                     <div className="icon-settings">
                         <img src={linearAlgebra} className="icon-settings" style={{
                             position: "absolute",
@@ -143,11 +178,12 @@ function App() {
                     </div>
                 </div>
 
+
                 <div className="border-of-icons" style={{
                     position: "absolute",
                     top: "20px",
                     left: "160px",
-                }}>
+                }} onClick={() => set_page('PROBABILITY')}>
                     <div className="icon-settings">
                         <img src={Probability} className="icon-settings" alt={"probability"} />
                         <div className="name">
@@ -161,7 +197,7 @@ function App() {
                     position: "absolute",
                     top: "20px",
                     left: "300px",
-                }}>
+                }} onClick={() => set_page('CALCULUS')}>
                     <div className="icon-settings">
                         <img src={calc} className="icon-settings" alt={"calc"} />
                         <div className="name">
@@ -179,7 +215,7 @@ function App() {
                     position: "absolute",
                     top: "20px",
                     left: "440px",
-                }}>
+                }} onClick={() => set_page('PYTHON')}>
                     <div className="icon-settings">
                         <img src={py} className="icon-settings" alt={"py"} />
                         <div className="name">
@@ -197,7 +233,7 @@ function App() {
                     position: "absolute",
                     top: "200px",
                     left: "20px",
-                }}>
+                }} onClick={() => set_page('HTML')}>
                     <div className="icon-settings">
                         <img src={html} className="icon-settings" style={{
                             position: "absolute",
@@ -219,7 +255,7 @@ function App() {
                     position: "absolute",
                     top: "200px",
                     left: "160px",
-                }}>
+                }} onClick={() => set_page('CSS')}>
                     <div className="icon-settings">
                         <img src={css} className="icon-settings" alt={"css"} />
                         <div className="name">
@@ -239,7 +275,7 @@ function App() {
                     position: "absolute",
                     top: "200px",
                     left: "300px",
-                }}>
+                }} onClick={() => set_page('REACT')}>
                     <div className="icon-settings">
                         <img src={react} className="icon-settings" alt={"react"} />
                         <div className="name">
@@ -259,7 +295,7 @@ function App() {
                     position: "absolute",
                     top: "200px",
                     left: "440px",
-                }}>
+                }} onClick={() => set_page('VITE')}>
                     <div className="icon-settings">
                         <img src={vite} className="icon-settings" alt={"vite"} />
                         <div className="name">
@@ -277,7 +313,7 @@ function App() {
                     position: "absolute",
                     top: "380px",
                     left: "20px",
-                }}>
+                }} onClick={() => set_page('C')}>
                     <div className="icon-settings">
                         <img src={c} className="icon-settings" style={{
                             position: "absolute",
@@ -299,7 +335,7 @@ function App() {
                     position: "absolute",
                     top: "380px",
                     left: "160px",
-                }}>
+                }} onClick={() => set_page('CPP')}>
                     <div className="icon-settings">
                         <img src={cplus} className="icon-settings" alt={"cplus"} />
                         <div className="name">
@@ -319,7 +355,7 @@ function App() {
                     position: "absolute",
                     top: "380px",
                     left: "300px",
-                }}>
+                }} onClick={() => set_page('JAVA')}>
                     <div className="icon-settings">
                         <img src={java} className="icon-settings" alt={"java"} />
                         <div className="name">
@@ -338,7 +374,7 @@ function App() {
                     position: "absolute",
                     top: "380px",
                     left: "440px",
-                }}>
+                }} onClick={() => set_page('JS')}>
                     <div className="icon-settings">
                         <img src={js} className="icon-settings" alt={"js"} />
                         <div className="name">
@@ -355,7 +391,7 @@ function App() {
                     position: "absolute",
                     top: "560px",
                     left: "300px",
-                }}>
+                }} onClick={() => set_page('DATA')}>
                     <div className="icon-settings">
                         <img src={analytics} className="icon-settings" alt={"analytics"} />
                         <div className="name">
@@ -408,8 +444,8 @@ function App() {
                         left: "130px",
                         bottom: "-11px",
                         fontSize: '20px',
-                        // fontWeight: 'bold',
-                        cursor: "pointer",
+                        fontWeight: 'bold',
+                        // cursor: "pointer",
                         fontFamily: "Arial",
                         color: "white"
                     }}
@@ -420,9 +456,7 @@ function App() {
             </div>
 
             <div className="right">
-
-
-
+                {case_function_for_skills()}
             </div>
 
         </>
